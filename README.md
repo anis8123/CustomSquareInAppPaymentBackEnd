@@ -29,7 +29,10 @@ Example curl request you can make to the server:
 ```
 curl -X POST 'https://[Heroku app name].herokuapp.com/chargeForCookie' \
   -H 'Content-Type: application/json' \
-  -d '{ "nonce": "INSERT_YOUR_NONCE_HERE" }'
+  -d '{ "nonce": "INSERT_YOUR_NONCE_HERE" 
+      "amount": "INSERT_YOUR_AMOUNT_HERE"
+      "currency": "INSERT_YOUR_CURRENCY_HERE"
+      "name": "INSERT_YOUR_NAME_HERE"}'
 ```
 
 ## Start localhost server
