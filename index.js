@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const SquareConnect = require('square-connect');
-var request = require('request');
 const {
   PaymentsApi,
   OrdersApi,
@@ -31,7 +30,6 @@ const customersApi = new CustomersApi();
 
 app.post('/chargeForCookie', async (request, response) => {
   const requestBody = request.body;
-  console.log(requestBody);
   const createOrderRequest = getOrderRequest();
 
   try {
@@ -122,11 +120,11 @@ function getOrderRequest() {
     order: {
       line_items: [
         {
-          name: requestBody.name,
+          name: "hissabi",
           quantity: "1",
           base_price_money: {
-            amount: requestBody.amount,
-            currency: requestBody.currency
+            amount: 100,
+            currency: "USD"
           }
         }
       ]
