@@ -30,7 +30,7 @@ const customersApi = new CustomersApi();
 
 app.post('/chargeForCookie', async (request, response) => {
   const requestBody = request.body;
-  const createOrderRequest = getOrderRequest();
+  const createOrderRequest = getOrderRequest(requestBody);
 
   try {
     const locations = await locationsApi.listLocations();
@@ -63,7 +63,7 @@ app.post('/chargeForCookie', async (request, response) => {
 
 app.post('/chargeCustomerCard', async (request, response) => {
   const requestBody = request.body;
-  const createOrderRequest = getOrderRequest();
+  const createOrderRequest = getOrderRequest(requestBody);
 
   try {
     const locations = await locationsApi.listLocations();
@@ -114,17 +114,17 @@ app.post('/createCustomerCard', async (request, response) => {
   }
 });
 
-function getOrderRequest() {
+function getOrderRequest(requestBody) {
   return {
     idempotency_key: crypto.randomBytes(12).toString('hex'),
     order: {
       line_items: [
         {
-          name: "hissabi",
+          name: requestBody.name,
           quantity: "1",
           base_price_money: {
-            amount: 100,
-            currency: "USD"
+            amount: requestBody.amount,
+            currency: requestBody.currency
           }
         }
       ]
