@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const SquareConnect = require('square-connect');
+var request = require('request');
 const {
   PaymentsApi,
   OrdersApi,
