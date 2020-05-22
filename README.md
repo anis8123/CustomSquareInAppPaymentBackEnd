@@ -11,8 +11,11 @@ This is an example server with a single endpoint of `/CustomCharge` for processi
 ```
 
 *Please replace "INSERT_YOUR_NONCE_HERE" with your own nonce this was generated from either the Square Payment Form or the In-App Payments SDK.*
+
 *Please replace "INSERT_YOUR_AMOUNT_HERE" with your amout(Integer).*
+
 *Please replace "INSERT_YOUR_CURRENCY_HERE" with your currancy ISO code.*
+
 *Please replace "INSERT_YOUR_NAME_HERE" with your name of Payment.*
 ## Instructions
 
