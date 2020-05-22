@@ -28,7 +28,7 @@ const ordersApi = new OrdersApi();
 const locationsApi = new LocationsApi();
 const customersApi = new CustomersApi();
 
-app.post('/chargeForCookie', async (request, response) => {
+app.post('/CustomCharge', async (request, response) => {
   const requestBody = request.body;
   const createOrderRequest = getOrderRequest(requestBody);
 
