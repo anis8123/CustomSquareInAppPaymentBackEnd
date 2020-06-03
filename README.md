@@ -7,16 +7,19 @@ This is an example server with a single endpoint of `/CustomCharge` for processi
   "amount": "INSERT_YOUR_AMOUNT_HERE",
   "currency": "INSERT_YOUR_CURRENCY_HERE",
   "name": "INSERT_YOUR_NAME_HERE",
+  "idempotency_key": "INSERT_YOUR_IDENPOTENCY_KEY_HERE",
 }
 ```
 
 *Please replace "INSERT_YOUR_NONCE_HERE" with your own nonce this was generated from either the Square Payment Form or the In-App Payments SDK.*
 
-*Please replace "INSERT_YOUR_AMOUNT_HERE" with your amout(Integer).*
+*Please replace "INSERT_YOUR_AMOUNT_HERE" with your amout(Integer) of Payment.*
 
-*Please replace "INSERT_YOUR_CURRENCY_HERE" with your currancy ISO code.*
+*Please replace "INSERT_YOUR_CURRENCY_HERE" with your currancy ISO code of Payment.*
 
 *Please replace "INSERT_YOUR_NAME_HERE" with your name of Payment.*
+
+*Please replace "INSERT_YOUR_IDENPOTENCY_KEY_HERE" with your idempotency_key of Payment.*
 ## Instructions
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/anis8123/printcheck)
@@ -37,7 +40,9 @@ curl -X POST 'https://[Heroku app name].herokuapp.com/CustomCharge' \
   -d '{ "nonce": "INSERT_YOUR_NONCE_HERE", 
         "amount": "INSERT_YOUR_AMOUNT_HERE",
         "currency": "INSERT_YOUR_CURRENCY_HERE",
-        "name": "INSERT_YOUR_NAME_HERE"}'
+        "name": "INSERT_YOUR_NAME_HERE",
+        "idempotency_key": "INSERT_YOUR_IDENPOTENCY_KEY_HERE",
+        }'
 ```
 
 ## Start localhost server
