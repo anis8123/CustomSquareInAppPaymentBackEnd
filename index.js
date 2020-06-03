@@ -38,7 +38,7 @@ app.post('/CustomCharge', async (request, response) => {
     const order = await ordersApi.createOrder(locationId, createOrderRequest);
 
     const createPaymentRequest = {
-      "idempotency_key": crypto.randomBytes(12).toString('hex'),
+      "idempotency_key": requestBody.idempotency_key,
       "source_id": requestBody.nonce,
       "amount_money": {
         ...order.order.total_money,
@@ -70,7 +70,7 @@ app.post('/chargeCustomerCard', async (request, response) => {
     const locationId = locations.locations[0].id;
     const order = await ordersApi.createOrder(locationId, createOrderRequest);
     const createPaymentRequest = {
-      "idempotency_key": crypto.randomBytes(12).toString('hex'),
+      "idempotency_key": requestBody.idempotency_key,
       "customer_id": requestBody.customer_id,
       "source_id": requestBody.customer_card_id,
       "amount_money": {
@@ -116,7 +116,7 @@ app.post('/createCustomerCard', async (request, response) => {
 
 function getOrderRequest(requestBody) {
   return {
-    idempotency_key: crypto.randomBytes(12).toString('hex'),
+    idempotency_key: requestBody.idempotency_key,
     order: {
       line_items: [
         {
